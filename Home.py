@@ -46,64 +46,47 @@ with st.sidebar:
         st.session_state.menu_state['impuestos_expanded'] = False
         st.rerun()
 
-    # ===== CONCILIACIONES (DESPLEGABLE) =====
+    # ===== SECCIÓN: CONCILIACIONES =====
+    st.markdown("")  # Espacio
+    st.markdown("**🏦 CONCILIACIONES**")
+    
     conciliaciones_icon = "▲" if st.session_state.menu_state['conciliaciones_expanded'] else "▼"
-    if st.button(f"🏦 Conciliaciones {conciliaciones_icon}",
+    if st.button(f"Ver opciones {conciliaciones_icon}",
                  use_container_width=True,
                  key="btn_conciliaciones",
-                 type="primary" if st.session_state.menu_state['conciliaciones_expanded'] else "secondary"):
+                 type="secondary"):
         st.session_state.menu_state['conciliaciones_expanded'] = not st.session_state.menu_state['conciliaciones_expanded']
         st.session_state.menu_state['impuestos_expanded'] = False
         st.rerun()
 
     # --- Submenú Conciliaciones ---
     if st.session_state.menu_state['conciliaciones_expanded']:
-        col1, col2 = st.columns([0.1, 0.9])
-        with col2:
-            # ✅ OPCIÓN CON BOTÓN (más confiable)
-            if st.button("🏦 Conciliación Bancaria", key="nav_conciliacion", use_container_width=True):
-                try:
-                    # Intenta con el nombre sin espacios primero
-                    st.switch_page("pages/Conciliaciones/Conciliacion_bancaria.py")
-                except:
-                    try:
-                        # Si falla, intenta con espacios
-                        st.switch_page("pages/Conciliaciones/Conciliación bancaria.py")
-                    except Exception as e:
-                        st.error(f"⚠️ No se encuentra el archivo: {e}")
+        if st.button("   • Conciliación Bancaria", key="nav_conciliacion", use_container_width=True):
+            st.switch_page("pages/Conciliacion_bancaria.py")
 
-    # ===== IMPUESTOS (DESPLEGABLE) =====
+    # ===== SECCIÓN: IMPUESTOS =====
+    st.markdown("")  # Espacio
+    st.markdown("**💰 IMPUESTOS**")
+    
     impuestos_icon = "▲" if st.session_state.menu_state['impuestos_expanded'] else "▼"
-    if st.button(f"💰 Impuestos {impuestos_icon}",
+    if st.button(f"Ver formularios {impuestos_icon}",
                  use_container_width=True,
                  key="btn_impuestos",
-                 type="primary" if st.session_state.menu_state['impuestos_expanded'] else "secondary"):
+                 type="secondary"):
         st.session_state.menu_state['impuestos_expanded'] = not st.session_state.menu_state['impuestos_expanded']
         st.session_state.menu_state['conciliaciones_expanded'] = False
         st.rerun()
 
     # --- Submenú Impuestos ---
     if st.session_state.menu_state['impuestos_expanded']:
-        col1, col2 = st.columns([0.1, 0.9])
-        with col2:
-            # ✅ OPCIÓN CON BOTONES (más confiable que page_link)
-            if st.button("📄 Formulario ICA Barranquilla", key="nav_ica", use_container_width=True):
-                try:
-                    st.switch_page("pages/Impuestos/1_Formulario_ICA_Barranquilla.py")
-                except Exception as e:
-                    st.error(f"⚠️ Error: {e}")
-            
-            if st.button("📄 Formulario Retefuente", key="nav_retefuente", use_container_width=True):
-                try:
-                    st.switch_page("pages/Impuestos/2_Formulario_Retefuente.py")
-                except Exception as e:
-                    st.error(f"⚠️ Error: {e}")
-            
-            if st.button("📄 Formulario SIMPLE", key="nav_simple", use_container_width=True):
-                try:
-                    st.switch_page("pages/Impuestos/3_Formulario_SIMPLE.py")
-                except Exception as e:
-                    st.error(f"⚠️ Error: {e}")
+        if st.button("   • Formulario ICA Barranquilla", key="nav_ica", use_container_width=True):
+            st.switch_page("pages/1_Formulario_ICA_Barranquilla.py")
+        
+        if st.button("   • Formulario Retefuente", key="nav_retefuente", use_container_width=True):
+            st.switch_page("pages/2_Formulario_Retefuente.py")
+        
+        if st.button("   • Formulario SIMPLE", key="nav_simple", use_container_width=True):
+            st.switch_page("pages/3_Formulario_SIMPLE.py")
 
     # ===== INFORMACIÓN DEL USUARIO Y CERRAR SESIÓN =====
     st.markdown("---")
@@ -181,41 +164,9 @@ if selected == 'Inicio':
     """)
 
     st.markdown("---")
-    
-    # ==========================================================
-    # 🔧 DIAGNÓSTICO DE ARCHIVOS (TEMPORAL - PARA DEBUG)
-    # ==========================================================
-    with st.expander("🔍 Diagnóstico del Sistema (Debug)"):
-        import os
-        st.write("📂 **Estructura de archivos detectada:**")
-        
-        try:
-            if os.path.exists("pages"):
-                for root, dirs, files in os.walk("pages"):
-                    level = root.replace("pages", "").count(os.sep)
-                    indent = " " * 2 * level
-                    st.write(f"{indent}📁 {os.path.basename(root)}/")
-                    sub_indent = " " * 2 * (level + 1)
-                    for file in files:
-                        if file.endswith('.py'):
-                            ruta_completa = os.path.join(root, file)
-                            st.write(f"{sub_indent}📄 {file}")
-                            st.code(ruta_completa, language=None)
-            else:
-                st.error("⚠️ La carpeta 'pages' no existe en la raíz del proyecto")
-                st.info("💡 Crea la carpeta 'pages' en la raíz del proyecto y coloca tus páginas allí")
-        except Exception as e:
-            st.error(f"Error al escanear archivos: {e}")
 
     st.markdown(f"""
     **Desarrollado por el área de Business Intelligence – Moma Group SAS**  
 
     *Sesión activa: {st.session_state.username}*
     """)
-
-# ==========================================================
-# 🐛 DEBUG: Mostrar información de session_state
-# ==========================================================
-# Descomenta estas líneas para ver el estado de la sesión durante desarrollo
-# with st.expander("🐛 Debug - Session State"):
-#     st.json(st.session_state.menu_state)
