@@ -41,7 +41,7 @@ with st.sidebar:
     st.markdown("---")
 
     # ===== INICIO =====
-    if st.button("🏠 Inicio", use_container_width=True, key="btn_inicio",
+    if st.button("Inicio", use_container_width=True, key="btn_inicio",
                  type="primary" if st.session_state.menu_state['selected_page'] == 'Inicio' else "secondary"):
         st.session_state.menu_state['selected_page'] = 'Inicio'
         st.session_state.menu_state['conciliaciones_expanded'] = False
