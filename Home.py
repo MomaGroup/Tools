@@ -37,7 +37,7 @@ if 'menu_state' not in st.session_state:
 # 🧭 SIDEBAR PERSONALIZADO
 # ==========================================================
 with st.sidebar:
-    st.markdown("#Menú")
+    st.markdown("# Menú")
     st.markdown("---")
 
     # ===== INICIO =====
