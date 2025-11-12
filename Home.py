@@ -1,5 +1,5 @@
 # ==========================================================
-# 🏠 Home.py — Panel principal Moma Group Tools
+#  Home.py — Panel principal Moma Group Tools
 # ==========================================================
 
 import streamlit as st
