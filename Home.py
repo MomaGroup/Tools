@@ -37,7 +37,7 @@ if 'menu_state' not in st.session_state:
 # 🧭 SIDEBAR PERSONALIZADO
 # ==========================================================
 with st.sidebar:
-    st.markdown("# 📋 Menú")
+    st.markdown("#Menú")
     st.markdown("---")
 
     # ===== INICIO =====
@@ -50,7 +50,7 @@ with st.sidebar:
 
     # ===== SECCIÓN: CONCILIACIONES =====
     st.markdown("")  # Espacio
-    st.markdown("**🏦 CONCILIACIONES**")
+    st.markdown("**CONCILIACIONES**")
     
     conciliaciones_icon = "▲" if st.session_state.menu_state['conciliaciones_expanded'] else "▼"
     if st.button(f"Ver opciones {conciliaciones_icon}",
@@ -68,7 +68,7 @@ with st.sidebar:
 
     # ===== SECCIÓN: IMPUESTOS =====
     st.markdown("")  # Espacio
-    st.markdown("**💰 IMPUESTOS**")
+    st.markdown("**IMPUESTOS**")
     
     impuestos_icon = "▲" if st.session_state.menu_state['impuestos_expanded'] else "▼"
     if st.button(f"Ver formularios {impuestos_icon}",
