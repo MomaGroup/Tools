@@ -2,8 +2,8 @@ import streamlit as st
 
 def aplicar_css_global():
     """
-    Oculta el menú nativo de Streamlit y aplica estilos personalizados.
-    El sidebar permanece siempre visible y solo se contrae con el botón.
+    CSS simplificado y funcional para el sidebar.
+    Esta versión evita conflictos con el comportamiento nativo de Streamlit.
     """
     st.markdown("""
         <style>
@@ -11,122 +11,26 @@ def aplicar_css_global():
            OCULTAR MENÚ NATIVO DE STREAMLIT
            ============================================ */
         
-        /* Ocultar el panel de navegación completo */
         [data-testid="stSidebarNav"] {
-            display: none !important;
-            visibility: hidden !important;
-            height: 0 !important;
-            overflow: hidden !important;
-        }
-        
-        /* Ocultar lista de páginas */
-        [data-testid="stSidebarNav"] ul {
-            display: none !important;
-        }
-        
-        /* Ocultar el separador del menú */
-        [data-testid="stSidebarNav"]::before,
-        [data-testid="stSidebarNav"]::after {
             display: none !important;
         }
         
         /* ============================================
-           SIDEBAR SIEMPRE VISIBLE Y FIJO - CORREGIDO
+           ESTILOS BÁSICOS DEL SIDEBAR (SIN FORZAR COMPORTAMIENTO)
            ============================================ */
         
-        /* Sidebar siempre expandido por defecto */
         section[data-testid="stSidebar"] {
-            width: 320px !important;
-            min-width: 320px !important;
             background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%) !important;
-            position: relative !important;
-            transition: all 0.3s ease !important;
-            overflow: visible !important;
         }
         
-        /* Contenido del sidebar siempre visible cuando está expandido */
-        section[data-testid="stSidebar"] > div {
-            opacity: 1 !important;
-            visibility: visible !important;
-            transition: opacity 0.3s ease !important;
-        }
-        
-        /* CORREGIDO: Cuando está colapsado (con el botón) */
-        section[data-testid="stSidebar"][aria-expanded="false"] {
-            width: 0px !important;
-            min-width: 0px !important;
-            margin-left: 0px !important;
-            overflow: hidden !important;
-        }
-        
-        /* Ocultar contenido del sidebar cuando está colapsado */
-        section[data-testid="stSidebar"][aria-expanded="false"] > div {
-            opacity: 0 !important;
-            visibility: hidden !important;
-            pointer-events: none !important;
-            transition: opacity 0.2s ease !important;
-        }
-        
-        /* Botón de colapsar/expandir sidebar */
-        button[kind="header"] {
-            display: block !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-        }
-        
-        /* Botón de colapsar visible y estilizado */
-        [data-testid="collapsedControl"] {
-            display: flex !important;
-            position: fixed !important;
-            top: 0.5rem !important;
-            left: 0.5rem !important;
-            z-index: 999999 !important;
-            background: #667eea !important;
-            color: white !important;
-            border-radius: 8px !important;
-            padding: 8px !important;
-            cursor: pointer !important;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
-            transition: all 0.2s ease !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-        }
-        
-        [data-testid="collapsedControl"]:hover {
-            background: #5568d3 !important;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
-            transform: scale(1.05) !important;
-        }
-        
-        /* Botón para colapsar cuando el sidebar está visible */
-        [data-testid="stSidebar"] button[kind="header"] {
-            display: block !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-        }
-        
-        /* Eliminar padding superior del sidebar */
         section[data-testid="stSidebar"] > div:first-child {
             padding-top: 1rem !important;
-        }
-        
-        /* Ajustar contenido cuando sidebar está expandido */
-        .main .block-container {
-            padding-left: 2rem !important;
-            padding-right: 2rem !important;
-            transition: all 0.3s ease !important;
-        }
-        
-        /* NUEVO: Ajustar contenido cuando sidebar está colapsado */
-        section[data-testid="stSidebar"][aria-expanded="false"] ~ .main .block-container {
-            max-width: 100% !important;
         }
         
         /* ============================================
            ESTILOS PARA BOTONES DEL MENÚ
            ============================================ */
         
-        /* Botones del menú personalizado */
         div[data-testid="stSidebar"] button {
             border-radius: 8px !important;
             margin-bottom: 8px !important;
@@ -135,14 +39,12 @@ def aplicar_css_global():
             border: 1px solid transparent !important;
         }
         
-        /* Hover en botones */
         div[data-testid="stSidebar"] button:hover {
             transform: translateX(3px) !important;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
             border-color: #e0e0e0 !important;
         }
         
-        /* Botones primarios activos */
         div[data-testid="stSidebar"] button[kind="primary"] {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
             color: white !important;
@@ -150,55 +52,22 @@ def aplicar_css_global():
         }
         
         /* ============================================
-           OPCIONAL: OCULTAR ELEMENTOS ADICIONALES
+           ESTILOS GENERALES DE LA APLICACIÓN
            ============================================ */
         
-        /* Ocultar header superior de Streamlit (OPCIONAL) */
-        /* Descomenta si quieres ocultar completamente el header */
-        /* header[data-testid="stHeader"] {
-            display: none !important;
-        } */
-        
-        /* Ocultar el footer "Made with Streamlit" */
-        footer {
-            display: none !important;
-        }
-        
-        /* Ocultar botón de menú hamburguesa en móvil */
-        [data-testid="stToolbar"] {
-            display: none !important;
-        }
-        
-        /* ============================================
-           ESTILOS PARA MEJORAR LA UI
-           ============================================ */
-        
-        /* Espacio entre secciones */
         .block-container {
             padding-top: 2rem !important;
             padding-bottom: 2rem !important;
         }
         
-        /* Estilo para los page_link (si decides usarlos) */
-        div[data-testid="stSidebar"] a {
-            text-decoration: none !important;
-            color: inherit !important;
-            padding: 8px 12px !important;
-            border-radius: 6px !important;
-            display: block !important;
-            transition: all 0.2s ease !important;
-        }
-        
-        div[data-testid="stSidebar"] a:hover {
-            background-color: #f0f2f6 !important;
-            transform: translateX(3px) !important;
+        footer {
+            display: none !important;
         }
         
         /* ============================================
            ESTILOS PARA ALERTAS Y MENSAJES
            ============================================ */
         
-        /* Success messages */
         .stSuccess {
             background-color: #d4edda !important;
             border-left: 4px solid #28a745 !important;
@@ -206,7 +75,6 @@ def aplicar_css_global():
             padding: 12px !important;
         }
         
-        /* Warning messages */
         .stWarning {
             background-color: #fff3cd !important;
             border-left: 4px solid #ffc107 !important;
@@ -214,7 +82,6 @@ def aplicar_css_global():
             padding: 12px !important;
         }
         
-        /* Error messages */
         .stError {
             background-color: #f8d7da !important;
             border-left: 4px solid #dc3545 !important;
@@ -222,7 +89,6 @@ def aplicar_css_global():
             padding: 12px !important;
         }
         
-        /* Info messages */
         .stInfo {
             background-color: #d1ecf1 !important;
             border-left: 4px solid #17a2b8 !important;
@@ -231,17 +97,15 @@ def aplicar_css_global():
         }
         
         /* ============================================
-           ESTILOS PARA TABLAS Y DATAFRAMES
+           ESTILOS PARA TABLAS
            ============================================ */
         
-        /* Tablas con bordes redondeados */
         .dataframe {
             border-radius: 8px !important;
             overflow: hidden !important;
             border: 1px solid #e0e0e0 !important;
         }
         
-        /* Header de tablas */
         .dataframe thead tr {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
             color: white !important;
@@ -252,7 +116,6 @@ def aplicar_css_global():
             padding: 12px !important;
         }
         
-        /* Filas alternadas */
         .dataframe tbody tr:nth-child(even) {
             background-color: #f8f9fa !important;
         }
@@ -263,10 +126,9 @@ def aplicar_css_global():
         }
         
         /* ============================================
-           ESTILOS PARA INPUTS Y FORMULARIOS
+           ESTILOS PARA INPUTS
            ============================================ */
         
-        /* Inputs con bordes redondeados */
         input, textarea, select {
             border-radius: 8px !important;
             border: 1px solid #ced4da !important;
@@ -278,7 +140,6 @@ def aplicar_css_global():
             box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25) !important;
         }
         
-        /* File uploader */
         [data-testid="stFileUploader"] {
             border: 2px dashed #ced4da !important;
             border-radius: 8px !important;
@@ -295,7 +156,6 @@ def aplicar_css_global():
            ESTILOS PARA BOTONES GENERALES
            ============================================ */
         
-        /* Botones principales */
         .stButton > button {
             border-radius: 8px !important;
             font-weight: 500 !important;
@@ -325,7 +185,7 @@ def aplicar_css_global():
         }
         
         /* ============================================
-           ESTILOS PARA SEPARADORES
+           SEPARADORES
            ============================================ */
         
         hr {
@@ -336,30 +196,13 @@ def aplicar_css_global():
         }
         
         /* ============================================
-           RESPONSIVE DESIGN
+           RESPONSIVE
            ============================================ */
         
         @media (max-width: 768px) {
-            section[data-testid="stSidebar"] {
-                width: 280px !important;
-                min-width: 280px !important;
-            }
-            
             .block-container {
                 padding: 1rem !important;
             }
-        }
-        
-        /* ============================================
-           PREVENIR SCROLL HORIZONTAL
-           ============================================ */
-        
-        body {
-            overflow-x: hidden !important;
-        }
-        
-        .main {
-            overflow-x: hidden !important;
         }
         </style>
     """, unsafe_allow_html=True)
@@ -368,11 +211,9 @@ def aplicar_css_global():
 def aplicar_tema_oscuro():
     """
     Aplica un tema oscuro a la aplicación.
-    Llamar esta función para cambiar al modo oscuro.
     """
     st.markdown("""
         <style>
-        /* Modo Oscuro */
         .stApp {
             background-color: #1a1a1a !important;
             color: #e0e0e0 !important;
@@ -386,14 +227,12 @@ def aplicar_tema_oscuro():
             background-color: #1a1a1a !important;
         }
         
-        /* Inputs en modo oscuro */
         input, textarea, select {
             background-color: #2d2d2d !important;
             color: #e0e0e0 !important;
             border-color: #404040 !important;
         }
         
-        /* Tablas en modo oscuro */
         .dataframe {
             background-color: #2d2d2d !important;
             color: #e0e0e0 !important;
