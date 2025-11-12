@@ -18,6 +18,9 @@ st.set_page_config(
 from auth import login, logout
 from ui_utils import aplicar_css_global
 
+# Debug temporal
+st.write(f"Sidebar state: {st.session_state.get('_sidebar_state', 'unknown')}")
+
 # ==========================================================
 # 🔐 LOGIN (AUTENTICACIÓN)
 # ==========================================================
