@@ -36,6 +36,9 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+st.title("🧾 Generador de Formulario Régimen SIMPLE")
+st.markdown("---")
+
 # ==========================================================
 # 🧭 SIDEBAR CON INFORMACIÓN DE USUARIO
 # ==========================================================
