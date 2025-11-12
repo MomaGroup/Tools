@@ -3,11 +3,9 @@
 # ==========================================================
 
 import streamlit as st
-from auth import login, logout
-from ui_utils import aplicar_css_global
 
 # ==========================================================
-# 🌐 CONFIGURACIÓN INICIAL
+# 🌐 CONFIGURACIÓN INICIAL (DEBE IR PRIMERO)
 # ==========================================================
 st.set_page_config(
     page_title="Generador de Formularios Tributarios",
@@ -15,6 +13,10 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# Ahora sí importar el resto
+from auth import login, logout
+from ui_utils import aplicar_css_global
 
 # ==========================================================
 # 🔐 LOGIN (AUTENTICACIÓN)
