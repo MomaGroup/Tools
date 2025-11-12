@@ -81,13 +81,13 @@ with st.sidebar:
 
     # --- Submenú Impuestos ---
     if st.session_state.menu_state['impuestos_expanded']:
-        if st.button("   • Formulario ICA Barranquilla", key="nav_ica", use_container_width=True):
+        if st.button("• Formulario ICA Barranquilla", key="nav_ica", use_container_width=True):
             st.switch_page("pages/1_Formulario_ICA_Barranquilla.py")
         
-        if st.button("   • Formulario Retefuente", key="nav_retefuente", use_container_width=True):
+        if st.button("• Formulario Retefuente", key="nav_retefuente", use_container_width=True):
             st.switch_page("pages/2_Formulario_Retefuente.py")
         
-        if st.button("   • Formulario SIMPLE", key="nav_simple", use_container_width=True):
+        if st.button("• Formulario SIMPLE", key="nav_simple", use_container_width=True):
             st.switch_page("pages/3_Formulario_SIMPLE.py")
 
     # ===== INFORMACIÓN DEL USUARIO Y CERRAR SESIÓN =====
