@@ -1,0 +1,36 @@
+# ==========================================================
+# 📁 .streamlit/config.toml
+# Configuración de Streamlit
+# ==========================================================
+
+[ui]
+# NO ocultar la barra superior (para mantener el botón de colapsar)
+hideTopBar = false
+
+# Ocultar navegación nativa de páginas
+hideSidebarNav = true
+
+[client]
+# NO mostrar navegación automática de páginas
+showSidebarNavigation = false
+
+# Herramientas de desarrollo (desactivar en producción)
+toolbarMode = "minimal"
+
+[server]
+# Configuraciones de seguridad
+enableCORS = false
+enableXsrfProtection = true
+maxUploadSize = 200
+
+[browser]
+# Recopilar métricas de uso
+gatherUsageStats = false
+
+[theme]
+# Tema personalizado (opcional)
+primaryColor = "#667eea"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#f0f2f6"
+textColor = "#262730"
+font = "sans serif"
