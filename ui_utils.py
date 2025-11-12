@@ -41,22 +41,37 @@ def aplicar_css_global():
             background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%) !important;
             position: relative !important;
             transition: all 0.3s ease !important;
+            overflow: visible !important;
+        }
+        
+        /* Contenido del sidebar siempre visible cuando está expandido */
+        section[data-testid="stSidebar"] > div {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transition: opacity 0.3s ease !important;
         }
         
         /* CORREGIDO: Cuando está colapsado (con el botón) */
         section[data-testid="stSidebar"][aria-expanded="false"] {
             width: 0px !important;
             min-width: 0px !important;
-            margin-left: 0px !important;  /* ✅ CAMBIADO de -320px a 0px */
-            transform: translateX(-100%) !important;  /* ✅ AGREGADO para ocultar */
-            overflow: hidden !important;  /* ✅ AGREGADO para evitar desbordamiento */
+            margin-left: 0px !important;
+            overflow: hidden !important;
         }
         
-        /* NUEVO: Ocultar contenido del sidebar cuando está colapsado */
+        /* Ocultar contenido del sidebar cuando está colapsado */
         section[data-testid="stSidebar"][aria-expanded="false"] > div {
             opacity: 0 !important;
             visibility: hidden !important;
             pointer-events: none !important;
+            transition: opacity 0.2s ease !important;
+        }
+        
+        /* Botón de colapsar/expandir sidebar */
+        button[kind="header"] {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
         }
         
         /* Botón de colapsar visible y estilizado */
@@ -73,12 +88,21 @@ def aplicar_css_global():
             cursor: pointer !important;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
             transition: all 0.2s ease !important;
+            visibility: visible !important;
+            opacity: 1 !important;
         }
         
         [data-testid="collapsedControl"]:hover {
             background: #5568d3 !important;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
             transform: scale(1.05) !important;
+        }
+        
+        /* Botón para colapsar cuando el sidebar está visible */
+        [data-testid="stSidebar"] button[kind="header"] {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
         }
         
         /* Eliminar padding superior del sidebar */
