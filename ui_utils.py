@@ -31,7 +31,7 @@ def aplicar_css_global():
         }
         
         /* ============================================
-           SIDEBAR SIEMPRE VISIBLE Y FIJO
+           SIDEBAR SIEMPRE VISIBLE Y FIJO - CORREGIDO
            ============================================ */
         
         /* Sidebar siempre expandido por defecto */
@@ -43,11 +43,20 @@ def aplicar_css_global():
             transition: all 0.3s ease !important;
         }
         
-        /* Cuando está colapsado (con el botón) */
+        /* CORREGIDO: Cuando está colapsado (con el botón) */
         section[data-testid="stSidebar"][aria-expanded="false"] {
             width: 0px !important;
             min-width: 0px !important;
-            margin-left: -320px !important;
+            margin-left: 0px !important;  /* ✅ CAMBIADO de -320px a 0px */
+            transform: translateX(-100%) !important;  /* ✅ AGREGADO para ocultar */
+            overflow: hidden !important;  /* ✅ AGREGADO para evitar desbordamiento */
+        }
+        
+        /* NUEVO: Ocultar contenido del sidebar cuando está colapsado */
+        section[data-testid="stSidebar"][aria-expanded="false"] > div {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
         }
         
         /* Botón de colapsar visible y estilizado */
@@ -82,6 +91,11 @@ def aplicar_css_global():
             padding-left: 2rem !important;
             padding-right: 2rem !important;
             transition: all 0.3s ease !important;
+        }
+        
+        /* NUEVO: Ajustar contenido cuando sidebar está colapsado */
+        section[data-testid="stSidebar"][aria-expanded="false"] ~ .main .block-container {
+            max-width: 100% !important;
         }
         
         /* ============================================
