@@ -38,6 +38,9 @@ st.set_page_config(
     page_icon="🧾"
 )
 
+st.title("🧾 Generador de Formulario Retefuente")
+st.markdown("---")
+
 # ==========================================================
 # 🧭 SIDEBAR CON INFORMACIÓN DE USUARIO
 # ==========================================================
