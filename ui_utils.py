@@ -2,8 +2,7 @@ import streamlit as st
 
 def aplicar_css_global():
     """
-    CSS simplificado y funcional para el sidebar.
-    Esta versión evita conflictos con el comportamiento nativo de Streamlit.
+    CSS optimizado para alineación a la izquierda y espaciado compacto.
     """
     st.markdown("""
         <style>
@@ -16,7 +15,7 @@ def aplicar_css_global():
         }
         
         /* ============================================
-           ESTILOS BÁSICOS DEL SIDEBAR (SIN FORZAR COMPORTAMIENTO)
+           ESTILOS BÁSICOS DEL SIDEBAR
            ============================================ */
         
         section[data-testid="stSidebar"] {
@@ -28,67 +27,75 @@ def aplicar_css_global():
         }
         
         /* ============================================
-           ALINEACIÓN Y ESPACIADO DEL SIDEBAR
+           ALINEACIÓN Y ESPACIADO DEL SIDEBAR - CRÍTICO
            ============================================ */
         
-        /* Alinear todo el contenido del sidebar a la izquierda */
+        /* Forzar alineación a la izquierda en todos los elementos */
+        div[data-testid="stSidebar"] * {
+            text-align: left !important;
+        }
+        
         div[data-testid="stSidebar"] .element-container {
             text-align: left !important;
             align-items: flex-start !important;
+            margin-bottom: 0.2rem !important;  /* Reducido de 0.3rem */
         }
         
-        /* Reducir espaciado vertical entre elementos */
-        div[data-testid="stSidebar"] .element-container {
-            margin-bottom: 0.3rem !important;
-        }
-        
-        /* Reducir espaciado en expanders */
-        div[data-testid="stSidebar"] .streamlit-expanderHeader {
-            padding: 0.5rem 1rem !important;
-            margin-bottom: 0.2rem !important;
-        }
-        
-        div[data-testid="stSidebar"] .streamlit-expanderContent {
-            padding: 0.3rem 1rem !important;
-        }
-        
-        /* Reducir margen en elementos de texto y títulos */
+        /* Reducir espaciado en títulos y textos */
         div[data-testid="stSidebar"] h1,
         div[data-testid="stSidebar"] h2,
         div[data-testid="stSidebar"] h3,
-        div[data-testid="stSidebar"] p {
-            margin-top: 0.3rem !important;
-            margin-bottom: 0.3rem !important;
-            text-align: left !important;
-        }
-        
-        /* Alinear bullets/listas a la izquierda */
-        div[data-testid="stSidebar"] ul,
-        div[data-testid="stSidebar"] ol {
-            text-align: left !important;
-            padding-left: 1.5rem !important;
+        div[data-testid="stSidebar"] p,
+        div[data-testid="stSidebar"] strong {
             margin-top: 0.2rem !important;
             margin-bottom: 0.2rem !important;
+            text-align: left !important;
+            padding-left: 0 !important;
         }
         
-        div[data-testid="stSidebar"] li {
-            margin-bottom: 0.2rem !important;
+        /* Markdown en sidebar */
+        div[data-testid="stSidebar"] .stMarkdown {
             text-align: left !important;
+            padding-left: 0 !important;
         }
         
         /* ============================================
-           ESTILOS PARA BOTONES DEL MENÚ
+           ESTILOS PARA BOTONES DEL MENÚ - OPTIMIZADO
            ============================================ */
         
+        /* Todos los botones del sidebar */
         div[data-testid="stSidebar"] button {
             border-radius: 8px !important;
-            margin-bottom: 0.3rem !important;
+            margin-bottom: 0.2rem !important;  /* Reducido de 0.3rem */
+            margin-top: 0 !important;
             font-weight: 500 !important;
             transition: all 0.3s ease !important;
             border: 1px solid transparent !important;
             width: 100% !important;
             text-align: left !important;
             justify-content: flex-start !important;
+            padding: 0.5rem 0.75rem !important;  /* Padding compacto */
+            display: flex !important;
+            align-items: center !important;
+        }
+        
+        /* Contenedor del botón */
+        div[data-testid="stSidebar"] .stButton {
+            margin-bottom: 0.2rem !important;
+            text-align: left !important;
+        }
+        
+        /* Texto dentro del botón alineado a la izquierda */
+        div[data-testid="stSidebar"] button > div {
+            text-align: left !important;
+            justify-content: flex-start !important;
+            width: 100% !important;
+        }
+        
+        /* Botones de submenú (con bullet) */
+        div[data-testid="stSidebar"] button[data-testid*="baseButton-secondary"] {
+            padding-left: 0.75rem !important;  /* Mantener padding consistente */
+            font-size: 0.9rem !important;
         }
         
         div[data-testid="stSidebar"] button:hover {
@@ -101,6 +108,16 @@ def aplicar_css_global():
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
             color: white !important;
             font-weight: 600 !important;
+        }
+        
+        /* ============================================
+           ESPACIADO ENTRE SECCIONES
+           ============================================ */
+        
+        /* Reducir espacio antes de las secciones CONCILIACIONES e IMPUESTOS */
+        div[data-testid="stSidebar"] .stMarkdown:has(strong) {
+            margin-top: 0.3rem !important;
+            margin-bottom: 0.1rem !important;
         }
         
         /* ============================================
@@ -241,7 +258,7 @@ def aplicar_css_global():
            ============================================ */
         
         hr {
-            margin: 2rem 0 !important;
+            margin: 1.5rem 0 !important;  /* Reducido de 2rem */
             border: none !important;
             height: 2px !important;
             background: linear-gradient(90deg, transparent, #667eea, transparent) !important;
