@@ -93,6 +93,9 @@ with st.sidebar:
         if st.button("• Formulario SIMPLE", key="nav_simple", use_container_width=True):
             st.switch_page("pages/3_Formulario_SIMPLE.py")
 
+        if st.button("• Formulario IVA", key="nav_iva", use_container_width=True):
+            st.switch_page("pages/4_Formulario_IVA.py")
+
     # ===== INFORMACIÓN DEL USUARIO Y CERRAR SESIÓN =====
     st.markdown("---")
     st.success(f"👤 Usuario: **{st.session_state.username}**")
