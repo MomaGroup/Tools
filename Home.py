@@ -171,7 +171,7 @@ if selected == 'Inicio':
     st.markdown("---")
 
     st.markdown(f"""
-    **Desarrollado por el área de Business Intelligence – Moma Group SAS**  
+    **Desarrollado por el área de Business Intelligence de Moma Group SAS**  
 
     *Sesión activa: {st.session_state.username}*
     """)
