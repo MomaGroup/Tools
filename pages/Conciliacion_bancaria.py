@@ -124,7 +124,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.subheader("📊 Archivo de Contabilidad")
     uploaded_contab = st.file_uploader(
-        "Sube el archivo de movimientos contables",
+        "Sube el archivo 'Movimiento auxiliar por cuenta contable'",
         type=["xlsx", "csv"],
         key="contabilidad",
         help="Archivo Excel o CSV con el detalle contable del banco"
