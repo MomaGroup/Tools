@@ -793,16 +793,17 @@ with st.expander("📘 Instrucciones de Uso"):
     ### 🏦 Cómo usar el Generador de Conciliación Bancaria:
     
     1. **📊 Archivo de Contabilidad:**
-       - Sube el archivo Excel o CSV con los movimientos contables del banco.
+       - Carga el archivo Excel del reporte “Movimiento auxiliar por cuenta contable” 
+         tal como se descarga del sistema, sin aplicar ninguna edición.
        - Debe incluir columnas: Fecha, Comprobante, Tercero, Débito, Crédito.
        - El sistema detecta automáticamente las columnas relevantes.
     
     <br>
     
     2. **🏦 Extracto Bancario:**
-       - Sube el extracto bancario descargado de tu entidad financiera.
-       - Formatos compatibles: Excel (.xlsx) o CSV (.csv).
-       - Debe contener: Fecha, Descripción y Monto (o Cargos/Abonos).
+       - Sube el extracto bancario en formato excel.
+       - Debe contener: Fecha, Descripción y Monto (Cargos/Abonos en una misma columna).
+         Nota: Asegurate de que el archivo no contenga columnas vacias o innecesarias.
     
     <br>
     
@@ -821,9 +822,11 @@ with st.expander("📘 Instrucciones de Uso"):
     <br>
     
     5. **💡 Consejos:**
-       - Verifica que las fechas estén en formato correcto.
+       - Verifica que las fechas estén en formato "DD/MM/YYYY".
        - Revisa las partidas clasificadas en el expandible de "Detalle".
        - Si hay diferencias, revisa los conceptos bancarios no identificados.
+       - Si asigna un concepto de ingreso o gasto bancario en una sección distinta
+         a la indicada, informe al área de Business Intelligence.
     """, unsafe_allow_html=True)
 
 # ==========================================================
