@@ -62,8 +62,10 @@ with st.sidebar:
 
     # --- Submenú Conciliaciones ---
     if st.session_state.menu_state['conciliaciones_expanded']:
-        if st.button("• Conciliación Bancaria", key="nav_conciliacion", use_container_width=True):
-            st.switch_page("pages/Conciliacion_bancaria.py")
+        col_sub = st.columns(1)[0]
+        with col_sub:
+            if st.button("• Conciliación Bancaria", key="nav_conciliacion", use_container_width=True):
+                st.switch_page("pages/Conciliacion_bancaria.py")
 
     # ===== SECCIÓN: IMPUESTOS =====
     st.markdown("**IMPUESTOS**")
@@ -79,17 +81,19 @@ with st.sidebar:
 
     # --- Submenú Impuestos ---
     if st.session_state.menu_state['impuestos_expanded']:
-        if st.button("• Formulario ICA Barranquilla", key="nav_ica", use_container_width=True):
-            st.switch_page("pages/1_Formulario_ICA_Barranquilla.py")
-        
-        if st.button("• Formulario Retefuente", key="nav_retefuente", use_container_width=True):
-            st.switch_page("pages/2_Formulario_Retefuente.py")
-        
-        if st.button("• Formulario SIMPLE", key="nav_simple", use_container_width=True):
-            st.switch_page("pages/3_Formulario_SIMPLE.py")
+        col_sub = st.columns(1)[0]
+        with col_sub:
+            if st.button("• Formulario ICA Barranquilla", key="nav_ica", use_container_width=True):
+                st.switch_page("pages/1_Formulario_ICA_Barranquilla.py")
+            
+            if st.button("• Formulario Retefuente", key="nav_retefuente", use_container_width=True):
+                st.switch_page("pages/2_Formulario_Retefuente.py")
+            
+            if st.button("• Formulario SIMPLE", key="nav_simple", use_container_width=True):
+                st.switch_page("pages/3_Formulario_SIMPLE.py")
 
-        if st.button("• Formulario IVA", key="nav_iva", use_container_width=True):
-            st.switch_page("pages/4_Formulario_IVA.py")
+            if st.button("• Formulario IVA", key="nav_iva", use_container_width=True):
+                st.switch_page("pages/4_Formulario_IVA.py")
 
     # ===== INFORMACIÓN DEL USUARIO Y CERRAR SESIÓN =====
     st.markdown("---")
