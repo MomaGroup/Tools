@@ -28,15 +28,67 @@ def aplicar_css_global():
         }
         
         /* ============================================
+           ALINEACIÓN Y ESPACIADO DEL SIDEBAR
+           ============================================ */
+        
+        /* Alinear todo el contenido del sidebar a la izquierda */
+        div[data-testid="stSidebar"] .element-container {
+            text-align: left !important;
+            align-items: flex-start !important;
+        }
+        
+        /* Reducir espaciado vertical entre elementos */
+        div[data-testid="stSidebar"] .element-container {
+            margin-bottom: 0.3rem !important;
+        }
+        
+        /* Reducir espaciado en expanders */
+        div[data-testid="stSidebar"] .streamlit-expanderHeader {
+            padding: 0.5rem 1rem !important;
+            margin-bottom: 0.2rem !important;
+        }
+        
+        div[data-testid="stSidebar"] .streamlit-expanderContent {
+            padding: 0.3rem 1rem !important;
+        }
+        
+        /* Reducir margen en elementos de texto y títulos */
+        div[data-testid="stSidebar"] h1,
+        div[data-testid="stSidebar"] h2,
+        div[data-testid="stSidebar"] h3,
+        div[data-testid="stSidebar"] p {
+            margin-top: 0.3rem !important;
+            margin-bottom: 0.3rem !important;
+            text-align: left !important;
+        }
+        
+        /* Alinear bullets/listas a la izquierda */
+        div[data-testid="stSidebar"] ul,
+        div[data-testid="stSidebar"] ol {
+            text-align: left !important;
+            padding-left: 1.5rem !important;
+            margin-top: 0.2rem !important;
+            margin-bottom: 0.2rem !important;
+        }
+        
+        div[data-testid="stSidebar"] li {
+            margin-bottom: 0.2rem !important;
+            text-align: left !important;
+        }
+        
+        /* ============================================
            ESTILOS PARA BOTONES DEL MENÚ
            ============================================ */
         
         div[data-testid="stSidebar"] button {
             border-radius: 8px !important;
-            margin-bottom: 8px !important;
+            margin-bottom: 0.3rem !important;
             font-weight: 500 !important;
             transition: all 0.3s ease !important;
             border: 1px solid transparent !important;
+            width: 100% !important;
+            text-align: left !important;
+            justify-content: flex-start !important;
         }
         
         div[data-testid="stSidebar"] button:hover {
