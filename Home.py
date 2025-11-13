@@ -115,12 +115,12 @@ selected = st.session_state.menu_state['selected_page']
 # 🏠 INICIO
 # ==========================================================
 if selected == 'Inicio':
-    st.title("🏛️ Sistema de Generación de Formularios Tributarios")
+    st.title("🏛️ Sistema Integrado de Herramientas Contables")
     st.markdown("### Moma Group SAS")
     st.markdown("---")
 
     st.markdown("""
-    ## Bienvenido al Sistema de Generación Automática de Formularios
+    ## Bienvenido al Sistema Integrado de Herramientas Contables
 
     Este sistema te permite generar automáticamente formularios tributarios y conciliaciones 
     para múltiples empresas de forma rápida y eficiente.
@@ -147,10 +147,8 @@ if selected == 'Inicio':
 
     with col2:
         st.warning("""
-        **🏦 Conciliaciones**
-        - Conciliación Bancaria  
-        - Cuentas por Cobrar (CxC)  
-        - Cuentas por Pagar (CxP)  
+        **✅ Conciliaciones**
+        - Conciliación Bancaria
         """)
 
     st.markdown("---")
