@@ -327,7 +327,10 @@ if st.button("⚙️ Generar Conciliación Bancaria", type="primary", use_contai
                 "IVA TRANSFERENCIA ENVIADA","IVA TRANSFERENCIA ENVIADA OTRA ENTIDAD",
                 "COMISION PAGO PROVEEDORES OTROS BANCOS","RENDIMIENTOS FINANCIEROS",
                 "REINTEGRO GRAVAMEN MVTO FINANCIERO", "COBRO CONSULTA SALDOS Y MOVIMIENTOS",
-                "DESCUENTO SOLICITUD COPIA EXTRACTO"
+                "DESCUENTO SOLICITUD COPIA EXTRACTO", "IMPTO GOBIERNO 4X1000", "CUOTA MANEJO TRJ DEB",
+                "CXC IMPTO GOBIERNO 4X1000 MON", "AJUSTE X GRAVAMEN MOVIMIENTO FINANCIER",
+                "COBRO IVA SERVICIOS FINANCIEROS", "COBRO CUOTA DE MANEJO TARJETA DEBITO",
+                "RENDIMIENTOS FINANCIEROS.", 
             ]
             dicc_prefix = [" ".join(concept.split()[:2]).lower() for concept in dicc_bancario]
             
