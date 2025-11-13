@@ -803,7 +803,7 @@ with st.expander("📘 Instrucciones de Uso"):
     2. **🏦 Extracto Bancario:**
        - Sube el extracto bancario en formato excel.
        - Debe contener: Fecha, Descripción y Monto (Cargos/Abonos en una misma columna).
-    Nota: Asegurate de que el archivo no contenga columnas vacias o innecesarias.
+       **Nota:** Asegurate de que el archivo no contenga columnas vacias o innecesarias.
     
     <br>
     
