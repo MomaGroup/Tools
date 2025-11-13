@@ -18,9 +18,6 @@ st.set_page_config(
 from auth import login, logout
 from ui_utils import aplicar_css_global
 
-# Debug temporal
-st.write(f"Sidebar state: {st.session_state.get('_sidebar_state', 'unknown')}")
-
 # ==========================================================
 # 🔐 LOGIN (AUTENTICACIÓN)
 # ==========================================================
@@ -52,7 +49,6 @@ with st.sidebar:
         st.rerun()
 
     # ===== SECCIÓN: CONCILIACIONES =====
-    st.markdown("")  # Espacio
     st.markdown("**CONCILIACIONES**")
     
     conciliaciones_icon = "▲" if st.session_state.menu_state['conciliaciones_expanded'] else "▼"
@@ -66,11 +62,10 @@ with st.sidebar:
 
     # --- Submenú Conciliaciones ---
     if st.session_state.menu_state['conciliaciones_expanded']:
-        if st.button("   • Conciliación Bancaria", key="nav_conciliacion", use_container_width=True):
+        if st.button("• Conciliación Bancaria", key="nav_conciliacion", use_container_width=True):
             st.switch_page("pages/Conciliacion_bancaria.py")
 
     # ===== SECCIÓN: IMPUESTOS =====
-    st.markdown("")  # Espacio
     st.markdown("**IMPUESTOS**")
     
     impuestos_icon = "▲" if st.session_state.menu_state['impuestos_expanded'] else "▼"
