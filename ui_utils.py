@@ -24,100 +24,131 @@ def aplicar_css_global():
         
         section[data-testid="stSidebar"] > div:first-child {
             padding-top: 1rem !important;
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
         }
         
         /* ============================================
-           ALINEACIÓN Y ESPACIADO DEL SIDEBAR - CRÍTICO
+           ALINEACIÓN CRÍTICA - TODOS LOS ELEMENTOS
            ============================================ */
         
-        /* Forzar alineación a la izquierda en todos los elementos */
-        div[data-testid="stSidebar"] * {
+        /* Forzar TODO el sidebar a la izquierda */
+        div[data-testid="stSidebar"],
+        div[data-testid="stSidebar"] *,
+        div[data-testid="stSidebar"] div,
+        div[data-testid="stSidebar"] p,
+        div[data-testid="stSidebar"] span {
             text-align: left !important;
+            justify-content: flex-start !important;
+            align-items: flex-start !important;
         }
         
+        /* Contenedores de elementos */
         div[data-testid="stSidebar"] .element-container {
             text-align: left !important;
-            align-items: flex-start !important;
-            margin-bottom: 0.2rem !important;  /* Reducido de 0.3rem */
+            display: block !important;
+            margin-bottom: 0.15rem !important;
         }
         
-        /* Reducir espaciado en títulos y textos */
-        div[data-testid="stSidebar"] h1,
-        div[data-testid="stSidebar"] h2,
-        div[data-testid="stSidebar"] h3,
-        div[data-testid="stSidebar"] p,
-        div[data-testid="stSidebar"] strong {
-            margin-top: 0.2rem !important;
-            margin-bottom: 0.2rem !important;
+        /* Contenedor de botones específicamente */
+        div[data-testid="stSidebar"] .stButton {
             text-align: left !important;
-            padding-left: 0 !important;
+            margin-bottom: 0.15rem !important;
         }
         
-        /* Markdown en sidebar */
-        div[data-testid="stSidebar"] .stMarkdown {
+        div[data-testid="stSidebar"] .stButton > div {
             text-align: left !important;
-            padding-left: 0 !important;
+            justify-content: flex-start !important;
         }
         
         /* ============================================
-           ESTILOS PARA BOTONES DEL MENÚ - OPTIMIZADO
+           ESTILOS PARA BOTONES - MUY ESPECÍFICO
            ============================================ */
         
-        /* Todos los botones del sidebar */
-        div[data-testid="stSidebar"] button {
+        /* TODOS los botones del sidebar */
+        div[data-testid="stSidebar"] button,
+        div[data-testid="stSidebar"] button[kind="secondary"],
+        div[data-testid="stSidebar"] button[kind="primary"] {
+            width: 100% !important;
+            text-align: left !important;
+            justify-content: flex-start !important;
+            display: flex !important;
+            align-items: center !important;
+            padding: 0.4rem 0.75rem !important;
+            margin-bottom: 0.15rem !important;
             border-radius: 8px !important;
-            margin-bottom: 0.2rem !important;  /* Reducido de 0.3rem */
-            margin-top: 0 !important;
             font-weight: 500 !important;
             transition: all 0.3s ease !important;
             border: 1px solid transparent !important;
-            width: 100% !important;
-            text-align: left !important;
-            justify-content: flex-start !important;
-            padding: 0.5rem 0.75rem !important;  /* Padding compacto */
-            display: flex !important;
-            align-items: center !important;
         }
         
-        /* Contenedor del botón */
-        div[data-testid="stSidebar"] .stButton {
-            margin-bottom: 0.2rem !important;
-            text-align: left !important;
-        }
-        
-        /* Texto dentro del botón alineado a la izquierda */
-        div[data-testid="stSidebar"] button > div {
+        /* Contenido interno del botón */
+        div[data-testid="stSidebar"] button > div,
+        div[data-testid="stSidebar"] button > div > div,
+        div[data-testid="stSidebar"] button p,
+        div[data-testid="stSidebar"] button span {
             text-align: left !important;
             justify-content: flex-start !important;
             width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
         }
         
-        /* Botones de submenú (con bullet) */
-        div[data-testid="stSidebar"] button[data-testid*="baseButton-secondary"] {
-            padding-left: 0.75rem !important;  /* Mantener padding consistente */
-            font-size: 0.9rem !important;
-        }
-        
-        div[data-testid="stSidebar"] button:hover {
-            transform: translateX(3px) !important;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
-            border-color: #e0e0e0 !important;
-        }
-        
+        /* Botón primario (Inicio) */
         div[data-testid="stSidebar"] button[kind="primary"] {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
             color: white !important;
             font-weight: 600 !important;
         }
         
+        /* Hover en botones */
+        div[data-testid="stSidebar"] button:hover {
+            transform: translateX(3px) !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+            border-color: #e0e0e0 !important;
+        }
+        
         /* ============================================
-           ESPACIADO ENTRE SECCIONES
+           TÍTULOS Y TEXTO DEL SIDEBAR
            ============================================ */
         
-        /* Reducir espacio antes de las secciones CONCILIACIONES e IMPUESTOS */
-        div[data-testid="stSidebar"] .stMarkdown:has(strong) {
+        div[data-testid="stSidebar"] h1,
+        div[data-testid="stSidebar"] h2,
+        div[data-testid="stSidebar"] h3 {
+            text-align: left !important;
+            margin-top: 0.3rem !important;
+            margin-bottom: 0.3rem !important;
+            padding-left: 0 !important;
+        }
+        
+        div[data-testid="stSidebar"] p,
+        div[data-testid="stSidebar"] strong {
+            text-align: left !important;
             margin-top: 0.3rem !important;
             margin-bottom: 0.1rem !important;
+            padding-left: 0 !important;
+            display: block !important;
+        }
+        
+        /* Markdown específico */
+        div[data-testid="stSidebar"] .stMarkdown {
+            text-align: left !important;
+            padding-left: 0 !important;
+        }
+        
+        div[data-testid="stSidebar"] .stMarkdown > div {
+            text-align: left !important;
+        }
+        
+        /* ============================================
+           SEPARADORES (HR)
+           ============================================ */
+        
+        div[data-testid="stSidebar"] hr {
+            margin: 0.8rem 0 !important;
+            border: none !important;
+            height: 1px !important;
+            background: #e0e0e0 !important;
         }
         
         /* ============================================
@@ -222,10 +253,10 @@ def aplicar_css_global():
         }
         
         /* ============================================
-           ESTILOS PARA BOTONES GENERALES
+           ESTILOS PARA BOTONES GENERALES (NO SIDEBAR)
            ============================================ */
         
-        .stButton > button {
+        .stButton > button:not([data-testid="stSidebar"] button) {
             border-radius: 8px !important;
             font-weight: 500 !important;
             transition: all 0.3s ease !important;
@@ -233,7 +264,7 @@ def aplicar_css_global():
             padding: 10px 24px !important;
         }
         
-        .stButton > button:hover {
+        .stButton > button:not([data-testid="stSidebar"] button):hover {
             transform: translateY(-2px) !important;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
         }
@@ -251,17 +282,6 @@ def aplicar_css_global():
         
         .streamlit-expanderHeader:hover {
             background-color: #e9ecef !important;
-        }
-        
-        /* ============================================
-           SEPARADORES
-           ============================================ */
-        
-        hr {
-            margin: 1.5rem 0 !important;  /* Reducido de 2rem */
-            border: none !important;
-            height: 2px !important;
-            background: linear-gradient(90deg, transparent, #667eea, transparent) !important;
         }
         
         /* ============================================
