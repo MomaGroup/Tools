@@ -115,7 +115,7 @@ selected = st.session_state.menu_state['selected_page']
 # 🏠 INICIO
 # ==========================================================
 if selected == 'Inicio':
-    st.title("🏛️ Sistema Integrado de Herramientas Contables")
+    st.title("🧰 Sistema Integrado de Herramientas Contables")
     st.markdown("### Moma Group SAS")
     st.markdown("---")
 
