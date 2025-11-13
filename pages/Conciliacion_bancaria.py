@@ -271,10 +271,10 @@ if st.button("⚙️ Generar Conciliación Bancaria", type="primary", use_contai
             status_text = st.empty()
             
             total_registros = len(contab_temp)
-            for idx, row in contab_temp.iterrows():
-                progress = (idx + 1) / total_registros
+            for contador, (idx, row) in enumerate(contab_temp.iterrows(), start=1):
+                progress = contador / total_registros
                 progress_bar.progress(progress)
-                status_text.text(f"🔍 Conciliando registros... {idx + 1}/{total_registros}")
+                status_text.text(f"🔍 Conciliando registros... {contador}/{total_registros}")
                 
                 monto = row["monto"]
                 match = banco_temp[banco_temp["monto"] == monto]
